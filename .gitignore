@@ -1,2 +1,5 @@
 # ignore all directories
 */*
+# except for below directories
+!static/*
+!templates/*
