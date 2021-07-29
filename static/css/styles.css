@@ -10790,7 +10790,7 @@ header.masthead .site-heading .h1 {
   color: #0085A1;
 }
 .post-preview > a > .post-title {
-  font-size: 1.875rem;
+  font-size: 1.5rem !important;
   margin-top: 1.875rem;
   margin-bottom: 0.625rem;
 }
