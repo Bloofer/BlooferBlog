@@ -19,17 +19,15 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Reviewlog</a>
+                <a class="navbar-brand" href="/">Reviewlog</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     메뉴
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Posting</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,28 +49,33 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
+                    {% for i in range(iter-1, -1, -1) %}
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html" data-toggle="modal" data-target="#review4">
-                            <h4 class="post-title">책 리뷰 넷. 채식주의자</h4>
-                            <h5 class="post-subtitle">채식주의자 - 한강 ★★☆</h5>
+                        <a href="post.html" data-toggle="modal" data-target="#review{{i+1}}">
+                            <h4 class="post-title">{{atitleList[i]}}</h4>
+                            <h5 class="post-subtitle">{{titleList[i]}}</h5>
                         </a>
                         <!-- modal start -->
-                        <div class="modal fade" id="review4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="review{{i+1}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">책 리뷰 넷. 채식주의자</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">{{atitleList[i]}}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <img src="https://reviewlog.kr/static/assets/img/review4.jpg" style="max-width: 100%; padding: 30px 50px 50px 50px;">
+                                <img src="https://reviewlog.kr/static/assets/img/review{{i+1}}.jpg" style="max-width: 100%; padding: 30px 50px 50px 50px;">
                                 </br>
-                                <span>채식주의자 - 한강 ★★☆</span>
+                                <span>{{titleList[i]}}</span>
                                 </br></br>
-                                <span>읽는 내내 불쾌하고 페이지를 넘기기 힘들었다. 작가의 의도는 이해하나 본인 취향은 아니었던.</span>
+                                <span>
+                                  {% for content in contentsList[i] %}
+                                    {{content}}</br>
+                                  {% endfor %}
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -80,118 +83,12 @@
                         <!-- modal end -->
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">jmyang</a>
-                            on September 24, 2021
+                            <b>jmyang</b>
                         </p>
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html" data-toggle="modal" data-target="#review3">
-            							<h4 class="post-title">책 리뷰 셋. 색채가 없는 다자키 쓰쿠로와 그가 순례를 떠난 해</h4>
-            							<h5 class="post-subtitle">색채가 없는 다자키 쓰쿠로와 그가 순례를 떠난 해 - 무라카미 하루키 ★★★★☆</h5>
-						            </a>
-                        <!-- modal start -->
-                        <div class="modal fade" id="review3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">책 리뷰 셋. 색채가 없는 다자키 쓰쿠로와 그가 순례를 떠난 해</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <img src="https://reviewlog.kr/static/assets/img/review3.jpg" style="max-width: 100%; padding: 30px 50px 50px 50px;">
-                                </br>
-                                <span>색채가 없는 다자키 쓰쿠로와 그가 순례를 떠난 해 - 무라카미 하루키 ★★★★☆</span>
-                                </br></br>
-                                <span>색채가 없는 다자키 쓰쿠루는 사실 누구보다 색채가 짙은 사람이었다. 낮은 자존감, 학창시절 친구들에게 버림받으면서 얻은 깊은 상처를 가진 다자키 쓰쿠루는 십여년을 흐릿한 상태로 살아오게 된다. 하지만 그러는 과정에서 상처받았던 과거를 그대로 받아들이고 자아를 성찰하며 성숙해가는 과정을 보여주는데, 상처를 받아들임으로써 다자키 쓰쿠루는 상처를 치유해간다. 그리고 자기 자신의 색채가 진해져 간다.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- modal end -->
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">jmyang</a>
-                            on September 18, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html" data-toggle="modal" data-target="#review2">
-                            <h4 class="post-title">책 리뷰 둘. 조제와 호랑이와 물고기들</h4>
-                            <h5 class="post-subtitle">조제와 호랑이와 물고기들 - 다나베 세이코 ★★☆</h5>
-                        </a>
-                        <!-- modal start -->
-                        <div class="modal fade" id="review2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">책 리뷰 둘. 조제와 호랑이와 물고기들</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <img src="https://reviewlog.kr/static/assets/img/review2.jpg" style="max-width: 100%; padding: 30px 50px 50px 50px;">
-                                </br>
-                                <span>조제와 호랑이와 물고기들 - 다나베 세이코 ★★☆</span>
-                                </br></br>
-                                <span>영화를 먼저 보고 이 책을 읽게 되었다. 이 책은 작은 이야기를 엮어놓은 단편 소설집이다. 조제와 츠네오의 이야기는 32페이지의 짧은 분량이다.
-츠네오는 정말 조제를 사랑했지만 왜 떠나야했는가? 생각해보면 츠네오의 감정을 이해할 수 없는 것은 아니다. 사랑했지만 이제는 마음이 변한 사람에 대해 떠나보낼 줄 아는 것도 용기라고 생각한다.</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- modal end -->
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">jmyang</a>
-                            on August 24, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html" data-toggle="modal" data-target="#review1">
-                            <h4 class="post-title">{{atitle}}</h4>
-                            <h5 class="post-subtitle">{{title}}</h5>
-                        </a>
-                        <!-- modal start -->
-                        <div class="modal fade" id="review1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{atitle}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <img src="https://reviewlog.kr/static/assets/img/review1.jpg" style="max-width: 100%; padding: 30px 50px 50px 50px;">
-                                </br>
-                                <span>{{title}}</span>
-                                </br></br>
-                                <span>{{content}}</span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- modal end -->
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">jmyang</a>
-                            on July 8, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
+                    {% endfor %}
                 </div>
             </div>
         </div>
